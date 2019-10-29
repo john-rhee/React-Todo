@@ -9,12 +9,7 @@ const data = [
     task: 'Study',
     id: 123,
     completed: false
-  },
-  {
-    task: 'Sleep',
-    id: 124,
-    completed: false
-  },
+  }
 ];
 
 class App extends React.Component {
@@ -41,12 +36,33 @@ class App extends React.Component {
     });
   };
 
+  toggleCompleted = id => {
+  
+    this.setState({
+      todos: this.state.todos.map(todos => {
+        if (todos.id === id) {
+          return {
+            ...todos,
+            completed: !todos.completed
+          };
+        } else {
+          return todos;
+        }
+      })
+    });
+
+    // .map, .filter, .reduce, .forEach
+  };
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm addTodo={this.addTodo}/>
-        <TodoList todos={this.state.todos}/>
+        <TodoList 
+        toggleCompleted={this.toggleCompleted}
+        todos={this.state.todos}
+        />
       </div>
     );
   }
