@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import TodoForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
+import './components/TodoComponents/Todo.css';
 
 const data = [
   {
